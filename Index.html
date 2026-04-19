@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APR Industries | Elite Manufacturing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #ff4d4d;
+      --bg: #020617;
+      --glass: rgba(255, 255, 255, 0.03);
+      --border: rgba(255, 255, 255, 0.1);
+      --text-dim: #9ca3af;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      background-image: radial-gradient(at 0% 0%, rgba(255, 77, 77, 0.08) 0px, transparent 50%);
+      color: white;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* --- SIDE NAVBAR --- */
+    .sidenav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 2000;
+      top: 0;
+      right: 0;
+      background-color: #0f172a;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+      backdrop-filter: blur(20px);
+      border-left: 1px solid var(--border);
+    }
+    
+    nav span{
+      margin-left:5px;
+      }
+
+    .sidenav a {
+      padding: 15px 32px;
+      text-decoration: none;
+      font-size: 24px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+      font-weight: 700;
+    }
+
+    .sidenav a:hover { color: var(--primary); transform: translateX(-10px); }
+    .sidenav .closebtn { position: absolute; top: 10px; right: 25px; font-size: 36px; }
+
+    /* --- TOP NAVBAR --- */
+    nav {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 1200px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(15px);
+      border: 1px solid var(--border);
+      padding: 15px 30px;
+      border-radius: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+.logo { 
+      font-weight: 900; 
+      font-size: 1.5rem; 
+      letter-spacing: -1px; 
+      color: var(--primary); 
+      display: flex;
+      align-items: center;
+      gap: 5px; /* Controls the space between APR and Industries */
+    }
+    
+    .logo span { 
+      color: white; /* Keeps 'Industries' white while 'APR' is Red */
+      font-weight: 400; 
+    }
+    
+    .menu-trigger { cursor: pointer; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; 
+    margin-right:0;}
+
+    /* --- HERO --- */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(3.5rem, 12vw, 8rem);
+      font-weight: 900;
+      letter-spacing: -4px;
+      background: linear-gradient(to bottom, #fff 50%, #475569);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* --- PRODUCT CARDS --- */
+    .section-header { text-align: center; padding: 120px 20px 60px; }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      padding: 0 5vw 100px;
+    }
+
+    .card {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 40px;
+      text-align: center;
+      transition: 0.4s;
+    }
+
+    .card:hover { transform: translateY(-10px); border-color: var(--primary); background: rgba(255,255,255,0.05); }
+    .card img { width: 100%; height: 180px; object-fit: contain; margin-bottom: 20px; transition: 0.4s; }
+    .card:hover img { transform: scale(1.05); }
+
+    /* --- CONTACT SECTION (RESTORED) --- */
+    .contact-section {
+      padding: 100px 5vw;
+      background: #010409;
+      display: flex;
+      justify-content: center;
+    }
+
+    .contact-container {
+      width: 100%;
+      max-width: 1100px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+
+    .contact-info { padding: 40px; background: var(--glass); border-radius: 30px; border: 1px solid var(--border); }
+    .contact-info h2 { color: var(--primary); font-size: 2.5rem; margin-bottom: 20px; }
+    .contact-item { margin-bottom: 25px; }
+    .contact-item h4 { color: white; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 5px; }
+    .contact-item p { color: var(--text-dim); font-size: 1.2rem; }
+
+    /* --- HIRING BANNER --- */
+    .hiring-bar { background: var(--primary); color: white; padding: 15px; text-align: center; font-weight: 900; overflow: hidden; }
+
+    .cta-button {
+      background: white; color: black; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.3s; display: inline-block;
+    }
+    .cta-button:hover { background: var(--primary); color: white; transform: scale(1.05); }
+
+  </style>
+</head>
+
+<body>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#" onclick="closeNav()">Home</a>
+    <a href="#products" onclick="closeNav()">Products</a>
+    <a href="#contact" onclick="closeNav()">Contact</a>
+    <a href="#hiring" onclick="closeNav()">Hiring</a>
+  </div>
+
+  
+    <nav>
+
+    <div class="logo">APR <span>Industries</span></div>
+
+    <div class="menu-trigger" onclick="openNav()">☰</div>
+
+  </nav>
+
+  <section class="hero">
+    <h1>APR INDUSTRIES</h1>
+  </section>
+
+  <div class="hiring-bar" id="hiring">
+    HIRING MACHINE OPERATORS • CALL +91 9443301657 • SALARY BASED ON PERFORMANCE
+  </div>
+
+  <header class="section-header" id="products">
+    <h2 style="font-size: 3rem;">Production Line</h2>
+  </header>
+
+  <div class="product-grid">
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTxXnlbP2OeKw_OTTmA2y_Ql1z4lIGbi3E6Qf0_erzcw&s=10" alt="PP">
+      <h3>PP Cover</h3>
+    </div>
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAxNURuIVRdVMrNo9ixU_l8xphQaP17BG1jl-FmjH79Q&s=10" alt="LD">
+      <h3>LD Cover</h3>
+    </div>
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3OMgDRW0wNped39AIbSD4LeesZZ4kd9twlyIl8f-PvA&s=10" alt="HM">
+      <h3>HM Cover</h3>
+    </div>
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrEiEZCLk2Xx20hR3jY8uOk-Z48V-6d3OdPhV-XzD46w&s=10" alt="Rolls">
+      <h3>Industrial Rolls</h3>
+    </div>
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdn1UWp1xKfsx6UZ4LBcqrBRVBv1A2aEexM5onpyV_IA&s=10" alt="Bags">
+      <h3>Bags</h3>
+    </div>
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIqVqDzGee05cjmmgsCqd2UiWGs-TQypD544DNkf1HmQ&s=10" alt="Printing">
+      <h3>Printing Covers</h3>
+    </div>
+  </div>
+
+  <section class="contact-section" id="contact">
+    <div class="contact-container">
+      <div class="contact-info">
+        <h2>Get in Touch</h2>
+        <div class="contact-item">
+          <h4>Phone</h4>
+          <p>+91 9443301657</p>
+        </div>
+        <div class="contact-item">
+          <h4>Email</h4>
+          <p>ravi.aprindustries@gmail.com</p>
+        </div>
+        <div class="contact-item">
+          <h4>Location</h4>
+          <p>Tamil Nadu, India</p>
+        </div>
+        <a href="tel:9443301657" class="cta-button">Call Now</a>
+      </div>
+      
+        
+
+  <footer style="padding: 50px; text-align: center; border-top: 1px solid var(--border); color: #4b5563;">
+    © 2026 APR Industries. All rights reserved.
+  </footer>
+
+  <script>
+    function openNav() { document.getElementById("mySidenav").style.width = "300px"; }
+    function closeNav() { document.getElementById("mySidenav").style.width = "0"; }
+  </script>
+
+</body>
+  </html>
